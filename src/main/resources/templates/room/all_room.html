@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>movie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: darkslategray">
+<header th:insert="room/head/header_room :: header"></header>
+    <div class="row" style="margin-left: 100px">
+        <div class="col-md-4" style="width: 350px;" th:each="room:${all_room}">
+            <div class="thumbnail">
+                <form>
+                    <a class="btn btn-success" th:href="@{/place/findAllId/{id}(id=${room.id})}" role="button" ><strong>Place</strong></a>
+                    <a class="btn btn-link" th:href="@{/room/update/{id}(id=${room.id})}" role="button"><strong>UPDATE</strong></a>
+                    <a class="btn btn-link" th:href="@{/room/delete/{id}(id=${room.id})}" role="button"><strong>DEL</strong></a>
+                </form>
+                <a th:href="@{/room/one/{id}(id=${room.id})}"><img th:src="@{/room/image/{id}(id=${room.id})}" alt="there is no photo" style="width: 100%"></a>
+                <div class="caption">
+                    <strong><p th:text="${room.name}"></p></strong>
+                    <p th:text="${room.rating}"></p>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

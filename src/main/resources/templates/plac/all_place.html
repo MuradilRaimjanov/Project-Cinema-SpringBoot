@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>place</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="plac/head/header_plac :: header"></header>
+
+<div class="row" style="margin-left: 100px">
+    <div class="col-md-4" style="width: 150px;" th:each="place:${all_place}">
+        <div class="thumbnail">
+            <form>
+                <a class="btn btn-link" th:href="@{/place/update/{id}(id=${place.id})}" role="button"><strong>UPDATE</strong></a>
+                <a class="btn btn-link" th:href="@{/place/delete/{id}(id=${place.id})}" role="button"><strong>DEL</strong></a>
+            </form>
+            <a th:href="@{/place/one/{id}(id=${place.id})}"><img th:src="@{/place/image/{id}(id=${place.id})}" alt="there is no photo" style="width: 100%"></a>
+            <div class="caption">
+                <label for="12" style="color: darkgreen">Price</label>
+                <strong><p th:text="${place.price}" id="12" style="color: darkgreen"></p></strong>
+                <p th:text="${place.x}"></p>
+                <p th:text="${place.y}"></p>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Cinema Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<form
+        th:object="${user}"
+        th:action="@{/user/save_user}"
+        th:method="post"
+        enctype="multipart/form-data"
+        style="width: 500px; height: 300px; margin-top: 200px; margin-left: 500px">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">USER NAME</label>
+    <input type="text" th:field="${user.name}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+           placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail2">USER EMAIL</label>
+    <input type="email" th:field="${user.email}" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"
+           placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">PASSWORD</label>
+    <input  type="text" th:field="${user.password}" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</body>
+</html>

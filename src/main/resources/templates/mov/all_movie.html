@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>all movies</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="mov/head/header_mov :: header"></header>
+
+
+        <div class="row" style="margin-left: 100px">
+            <div class="col-md-4" style="width: 350px;" th:each="movie:${all_movie}">
+                <div class="thumbnail">
+                    <form>
+                        <a class="btn btn-success" th:href="@{/session/findAllId/{id}(id=${movie.id})}" role="button" >Session</a>
+                        <a class="btn btn-link" th:href="@{/movie/update/{id}(id=${movie.id})}" role="button"><strong>UPDATE</strong></a>
+                        <a class="btn btn-link" th:href="@{/movie/delete/{id}(id=${movie.id})}" role="button"><strong>DEL</strong></a>
+                    </form>
+                    <a th:href="@{/movie/one/{id}(id=${movie.id})}"><img th:src="@{/movie/image/{id}(id=${movie.id})}" alt="there is no photo" style="width: 100%"></a>
+                    <div class="caption">
+                        <strong><p th:text="${movie.name}"></p></strong>
+                        <p th:text="${movie.genre}"></p>
+                        <p th:text="${movie.country}"></p>
+                        <p th:text="${movie.created}"></p>
+                        <p th:text="${movie.language}"></p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

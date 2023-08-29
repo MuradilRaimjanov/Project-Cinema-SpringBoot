@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>BUY</title>
+
+    <link rel="stylesheet" href="mainCss.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: darkslategray">
+<header th:insert="plac/head/header_plac :: header"></header>
+
+<div style="margin-top: 30px; margin-left: 640px;" th:border="2">
+    <h1 style="color: cadetblue"><strong>You have successfully bought a ticket!!!</strong></h1>
+    <h1 style="color: cadetblue"><strong>Thank you!!!</strong></h1>
+</div>
+</body>
+</html>

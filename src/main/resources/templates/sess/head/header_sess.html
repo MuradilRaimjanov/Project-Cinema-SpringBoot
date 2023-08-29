@@ -1,0 +1,85 @@
+<div th:fragment="header">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <ul class="nav navbar-nav" style="width: 1990px">
+            <li>
+                <a th:href="@{/cinema/find_all}">
+                    <button type="button" class="btn btn-link" style="color: darkcyan"><strong>Cinemas</strong></button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/movie/find_all}">
+                    <button type="button" class="btn btn-link" style="color: darkseagreen"><strong>Movies</strong></button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/place/find_all}">
+                    <button type="button" class="btn btn-link" style="color: darkgrey"><strong>Places</strong></button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/session/find_all}">
+                    <button type="button" class="btn btn-link" style="color: darkolivegreen"><strong>Sessions</strong>
+                    </button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/room/find_all}">
+                    <button type="button" class="btn btn-link"><strong>Rooms</strong></button>
+                </a>
+            </li>
+            <li style="margin-left: 790px">
+                <form class="navbar-form navbar-left"
+                      th:method="get"
+                      th:action="@{/session/find_by_name}"
+                      style="margin-top: 15px">
+                    <div class="form-group">
+                        <input  type="text" class="form-control" id="111" name="text"
+                                aria-describedby="emailHelp" placeholder="Name of session" style="width: 300px">
+                    </div>
+                    <button type="submit" class="btn btn-success"><strong>Search</strong></button>
+                </form>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <button type="button" class="btn btn-primary"><strong>LogOut</strong></button>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/session/save}">
+                    <button type="button" class="btn btn-primary"><strong>+</strong></button>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="jumbotron text-center mt-5" style="height: 310px">
+
+        <tr style="margin-bottom: 50px">
+            <th><img src="https://images.aif.by/007/555/1fa244fc7a4a0e1f67112359f6660366.jpg"
+                     class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px;"></th>
+
+
+            <th><img src="https://media.kudago.com/thumbs/l/images/list/19/8e/198e76ab4a007cccae6e2e5d2c7fa570.jpg"
+                     class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px;"></th>
+
+
+            <th><img
+                    src="https://sun9-52.userapi.com/impg/rjAb_0p4ZJbDPYuZvZZ7UjGBuJxQwVt5PCK-jQ/It5YKdZSUtM.jpg?size=807x567&quality=96&sign=a2af117f1ab4efa8b8faf96122ad1c91&type=album"
+                    class="img-rounded" alt="Cinque Terre" style="width: 250px; height: 150px; "></th>
+
+
+            <th><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcPp1k5vuRHL_Pijr_itSACvbo3MtgEU6ZBxVeHMUG9UDdEEp1NtEuIsXc5v9aanFY96k&usqp=CAU"
+                    class="img-rounded" alt="Cinque Terre" style="width: 200px; height: 130px; margin-bottom: 10px">
+            </th>
+
+            <th><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykk-eJ-h9X1WBlq4a9Ffb_pTNUMUq9mKYrHoKQJXsFOILW0FToR-NaQ_R3KYL5rEOC70&usqp=CAU"
+                    class="img-rounded" alt="Cinque Terre" style="width: 150px; height: 100px">
+            </th>
+
+        </tr>
+
+        <a th:href="@{/cinema/find_all}"><h2><strong>Купи билеты за один клик!!!</strong></h2></a>
+        <p><small>All the latest movie premieres are waiting for you!</small></p>
+    </div>
+</div>

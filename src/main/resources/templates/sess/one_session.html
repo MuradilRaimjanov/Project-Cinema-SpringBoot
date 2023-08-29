@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>all_cinema</title>
+    <link rel="stylesheet" href="mainCss.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: darkslategray">
+<header th:insert="sess/head/header_sess :: header"></header>
+
+<div class="row" style="margin-left: 100px">
+    <div class="col-md-4" style="width: 350px;">
+        <div class="thumbnail">
+            <form>
+                <a class="btn btn-success" th:href="@{/place/find_all}" role="button" ><strong>Place</strong></a>
+                <a class="btn btn-link" th:href="@{/session/update/{id}(id=${sess.id})}" role="button"><strong>UPDATE</strong></a>
+                <a class="btn btn-link" th:href="@{/session/delete/{id}(id=${sess.id})}" role="button"><strong>DEL</strong></a>
+            </form>
+            <a th:href="@{/session/one/{id}(id=${sess.id})}"><img th:src="@{/session/image/{id}(id=${sess.id})}" alt="there is no photo" style="width: 100%"></a>
+            <div class="caption">
+                <strong><p th:text="${sess.name}"></p></strong>
+                <label>Start</label>
+                <p th:text="${#temporals.format(sess.start, 'dd-MM-yyyy HH:mm')}"></p>
+                <label>Duration</label>
+                <p th:text="${sess.duration}"></p>
+                <label>Finish</label>
+                <p th:text="${#temporals.format(sess.finish, 'dd-MM-yyyy HH:mm')}"></p>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

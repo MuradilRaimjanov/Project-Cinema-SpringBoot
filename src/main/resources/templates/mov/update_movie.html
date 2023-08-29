@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>form login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="mov/head/header_mov :: header"></header>
+
+<form
+        th:method="post"
+        th:action="@{/movie/merge_update/{id}(id=${movie.id})}"
+        th:object="${movie}"
+        enctype="multipart/form-data"
+        style="width: 500px; height: 300px; margin-top: 10px; margin-left: 300px">
+    <div class="form-group">
+        <label for="1" style="color: aliceblue">Name of movie</label>
+        <input th:field="${movie.name}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+        <label for="3" style="color: aliceblue">Created</label>
+        <input th:field="${movie.created}" type="date" class="form-control" id="3" placeholder="Created">
+    </div>
+    <div class="form-group">
+        <label for="4" style="color: aliceblue">Country</label>
+        <input th:field="${movie.country}" type="text" class="form-control" id="4" placeholder="Country">
+    </div>
+    <div class="form-group">
+        <label for="5" style="color: aliceblue">Language</label>
+        <input th:field="${movie.language}" type="text" class="form-control" id="5" placeholder="Language">
+    </div>
+
+    <div class="form-group">
+        <input type="file" name="file"/>
+    </div>
+
+    <div class="form-group">
+        <select name="genre">
+            <option th:each="genre : ${T(com.example.projectcinemaspringboot.model.enums.Genre).values()}"
+                    th:value="${genre}"
+                    th:text="${genre}"></option>
+        </select>
+    </div>
+
+    <button type="submit"  class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

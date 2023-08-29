@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>new login cinema</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="cin/head/header_cin :: header"></header>
+
+<div  style="width: 600px; height: 500px; margin-top: 10px; margin-left: 250px;">
+    <form
+            th:method="post"
+            th:action="@{/cinema/save_cinema}"
+            th:object="${cinema}"
+            enctype="multipart/form-data"
+           >
+        <div class="form-group">
+            <label for="1" style="color: aliceblue"><strong>Name of cinema</strong></label>
+            <input th:field="${cinema.name}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="2" style="color: aliceblue"><strong>Address of cinema</strong></label>
+            <input th:field="${cinema.address}" type="text" class="form-control" id="2" placeholder="Address">
+        </div>
+        <div class="form-group">
+            <input type="file" name="file"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>form login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="plac/head/header_plac :: header"></header>
+<form
+        th:method="post"
+        th:action="@{/place/save_place}"
+        th:object="${place}"
+        enctype="multipart/form-data"
+        style="width: 600px; height: 300px; margin-top: 10px; margin-left: 300px">
+    <div class="form-group">
+        <label for="1" style="color: aliceblue">X-vertical</label>
+        <input th:field="${place.x}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="name">
+    </div>
+    <div class="form-group">
+        <label for="2" style="color: aliceblue" >Y-horizontal</label>
+        <input th:field="${place.y}" type="text" class="form-control" id="2" placeholder="address">
+    </div>
+    <div class="form-group">
+        <label for="3" style="color: aliceblue">Price</label>
+        <input th:field="${place.price}" type="text" class="form-control" id="3" placeholder="price">
+    </div>
+    <div class="form-group">
+        <input type="file" name="file"/>
+    </div>
+    <div class="dropdown">
+        <label for="3" style="color: aliceblue">Room</label>
+        <select th:field="*{roomId}" class="form-control ">
+            <option th:each="room:${roomList}"
+                    th:text="${room.name}"
+                    th:value="${room.id}"
+            ></option>
+        </select>
+        <button type="submit"  class="btn btn-primary" style="margin-left: 530px; margin-top: 30px">Submit</button>
+    </div>
+</form>
+</body>
+</html>

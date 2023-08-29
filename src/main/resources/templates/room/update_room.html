@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>form update</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="room/head/header_room :: header"></header>
+<form
+        th:method="post"
+        th:action="@{/room/merge_update/{id}(id=${room.id})}"
+        th:object="${room}"
+        style="width: 500px; height: 300px; margin-top: 10px; margin-left: 300px">
+    <div class="form-group">
+        <label for="1" style="color: aliceblue">Name of room</label>
+        <input th:field="${room.name}" type="text" class="form-control" id="1" aria-describedby="emailHelp" placeholder="Name">
+    </div>
+    <div class="form-group" >
+        <label for="2" style="color: aliceblue" >Rating</label>
+        <input th:field="${room.rating}" type="text" class="form-control" id="2" placeholder="Address">
+    </div>
+    <div class="dropdown">
+        <select th:field="*{cinemaId}" class="form-control ">
+            <option th:each="cinema:${cinemaList}"
+                    th:text="${cinema.name}"
+                    th:value="${cinema.id}"
+            ></option>
+        </select>
+        <button type="submit"  class="btn btn-primary" style="margin-left: 430px; margin-top: 30px">Submit</button>
+    </div>
+
+</form>
+</body>
+</html>

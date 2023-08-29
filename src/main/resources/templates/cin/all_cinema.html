@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
+    <title>all_cinema</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color: darkslategray">
+<header th:insert="cin/head/header_cin :: header"></header>
+
+       <div class="row" style="margin-left: 100px">
+        <div class="col-md-4" style="width: 350px;" th:each="cinema:${all_cinemas}">
+            <div class="thumbnail">
+                <form>
+                <a class="btn btn-success" th:href="@{/room/findAllId/{id}(id=${cinema.id})}" role="button"><strong>Rooms</strong></a>
+                    <a class="btn btn-link" th:href="@{/cinema/update/{id}(id=${cinema.id})}" role="button"><strong>UPDATE</strong></a>
+                    <a class="btn btn-link" th:href="@{/cinema/delete/{id}(id=${cinema.id})}" role="button"><strong>DEL</strong></a>
+                </form>
+                <a th:href="@{/cinema/one/{id}(id=${cinema.id})}"><img th:src="@{/cinema/image/{id}(id=${cinema.id})}" alt="there is no photo" style="width: 100%"></a>
+                    <div class="caption">
+                       <strong><p th:text="${cinema.name}"></p></strong>
+                        <p th:text="${cinema.address}"></p>
+                    </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

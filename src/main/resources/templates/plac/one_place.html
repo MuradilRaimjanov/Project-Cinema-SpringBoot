@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>one place</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: darkslategray">
+<header th:insert="plac/head/header_plac :: header"></header>
+
+<table class="table" style="width: 900px; height: 500px; margin-top: 10px; margin-left: 250px;">
+    <thead>
+    <tr>
+        <th scope="col" style="color: aliceblue"><b>ID</b></th>
+        <th scope="col" style="color: aliceblue"><b>X</b></th>
+        <th scope="col" style="color: aliceblue"><b>Y</b></th>
+        <th scope="col" style="color: aliceblue"><b>PRICE</b></th>
+        <th scope="col" style="color: aliceblue"><b>ROOM</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+        <td th:text="${place.id}" style="color: aliceblue"></td>
+        <td th:text="${place.x}" style="color: aliceblue"></td>
+        <td th:text="${place.y}" style="color: aliceblue"></td>
+        <td th:text="${place.price}" style="color: aliceblue"></td>
+        <td th:text="${place.room}" style="color: aliceblue"></td>
+        <td><a class="btn btn-primary" th:href="@{/place/update/{id}(id=${place.id})}" role="button" ><strong>UPDATE</strong></a></td>
+        <td><a class="btn btn-danger" th:href="@{/place/delete_place/{id}(id=${place.id})}" role="button" ><strong>DEL</strong></a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+</body>
+</html>
